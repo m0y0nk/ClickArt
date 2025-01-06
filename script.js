@@ -70,6 +70,64 @@ icons.addEventListener('click', (e) => {
     }
 });
 
+const iconTab = document.querySelector('#icons-tab');
+const icon = document.querySelectorAll('.icon');
+const colors = document.querySelectorAll('.color');
+const toggleBtn = document.querySelector('.mode-toggle-btn')
+
+toggleBtn.addEventListener('click', ()=> {
+    
+    if(toggleBtn.getAttribute('data-value')=='light') {
+        toggleBtn.setAttribute('data-value', 'dark')
+        document.body.style.cssText = 'background-color: #121212; color: #e0e0e0;';
+        
+        iconTab.style.backgroundColor = '#1f1f1f';
+        
+        for(let i = 0; i<icon.length; i++) {
+            icon[i].style.cssText = 'background-color: rgba(217, 243, 248, 0.2); box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);'
+        }
+        
+        canvas.style.cssText = 'background-color: #333333; border: 1px solid #444;'
+        
+        for(let i = 0; i<colors.length; i++) {
+            colors[i].style.cssText = 'border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);'
+        }
+        
+        colors[0].style.backgroundColor = 'rgba(0, 0, 0, 0.87)'
+        colors[1].style.backgroundColor = 'rgba(255, 0, 0, 0.87)'
+        colors[2].style.backgroundColor = 'rgba(0, 0, 255, 0.87)'
+        colors[3].style.backgroundColor = 'rgba(0, 128, 0, 0.87)'
+        colors[4].style.backgroundColor = 'rgba(255, 255, 0, 0.87)'
+        colors[5].style.backgroundColor = 'rgba(255, 255, 255, 0.87)'
+    }
+
+    else {
+
+        toggleBtn.setAttribute('data-value', 'light')
+        document.body.style.cssText = 'background-color: #f8f9fa;';
+        
+        iconTab.style.backgroundColor = '#333333';
+        
+        for(let i = 0; i<icon.length; i++) {
+            icon[i].style.cssText = 'background-color: rgba(217, 243, 248, 0.8); border-radius: 24%;'
+        }
+        
+        canvas.style.cssText = 'background-color: #f8f9fa;'
+        
+        for(let i = 0; i<colors.length; i++) {
+            colors[i].style.cssText = 'border: 2px solid #fff; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);'
+        }
+        
+        colors[0].style.backgroundColor = 'rgba(0, 0, 0, 0.87)'
+        colors[1].style.backgroundColor = 'rgba(255, 0, 0, 0.87)'
+        colors[2].style.backgroundColor = 'rgba(0, 0, 255, 0.87)'
+        colors[3].style.backgroundColor = 'rgba(0, 128, 0, 0.87)'
+        colors[4].style.backgroundColor = 'rgba(255, 255, 0, 0.87)'
+        colors[5].style.backgroundColor = 'rgba(255, 255, 255, 0.87)'
+    }
+
+})
+
 // Save canvas state
 function saveCanvas() {
     savedCanvasData = ctx.getImageData(0, 0, canvas.width, canvas.height);
