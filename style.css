@@ -1,0 +1,61 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #f8f9fa;
+}
+
+.logo {
+    background-color: rgb(67, 67, 67);
+    height: 6vh;
+    width: 6vh;
+    display: inline;
+}
+
+#icons-tab {
+    background-color: #333333;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 10px;
+}
+
+.icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: absolute;
+    left: 40%;
+}
+
+.icon {
+    height: 5vh;
+    width: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.3rem;
+    background-color: rgba(217, 243, 248, 0.8);
+    border-radius: 24%;
+}
+
+#canvas {
+    background-color: #f8f9fa;
+}
+
+.mode-toggle-btn {
+    display: absolute;
+    position: absolute;
+    right: 0.5%;
+    &:hover {
+        box-shadow: 3px 3px 10px white;
+    }
+}
+
+.freehand-icon, .erase-icon, .circle-icon, .rectangle-icon, .selection-icon {
+    &:hover {
+        box-shadow: 3px 3px 10px white;
+    }
+}
