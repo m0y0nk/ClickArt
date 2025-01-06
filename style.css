@@ -7,6 +7,10 @@ body {
     background-color: #f8f9fa;
 }
 
+img {
+    height: 60px;
+}
+
 .logo {
     background-color: rgb(67, 67, 67);
     height: 6vh;
@@ -54,7 +58,7 @@ body {
     }
 }
 
-.freehand-icon, .erase-icon, .circle-icon, .rectangle-icon, .selection-icon {
+.freehand-icon, .erase-icon, .circle-icon, .rectangle-icon, .selection-icon, .eraseall-icon {
     &:hover {
         box-shadow: 3px 3px 10px white;
     }
