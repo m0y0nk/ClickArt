@@ -41,31 +41,32 @@ function resetCanvas() {
 icons.addEventListener('click', (e) => {
     resetCanvas();
 
-    if (e.target.closest('.freehand-icon')) {
-        currentTool = 'freehand';
+    if (e.target.classList.contains('freehand-icon')) {
         canvas.style.cursor = 'crosshair';
         canvas.addEventListener('mousedown', startFreehand);
         canvas.addEventListener('mousemove', drawFreehand);
         canvas.addEventListener('mouseup', stopDrawing);
-    } else if (e.target.closest('.rectangle-icon')) {
-        currentTool = 'rectangle';
+    } 
+    else if (e.target.classList.contains('rectangle-icon')) {
         canvas.style.cursor = 'crosshair';
         canvas.addEventListener('mousedown', startRectangle);
         canvas.addEventListener('mousemove', drawRectangle);
         canvas.addEventListener('mouseup', stopDrawing);
-    } else if (e.target.closest('.circle-icon')) {
-        currentTool = 'circle';
+    }
+    else if (e.target.classList.contains('circle-icon')) {
         canvas.style.cursor = 'crosshair';
         canvas.addEventListener('mousedown', startCircle);
         canvas.addEventListener('mousemove', drawCircle);
         canvas.addEventListener('mouseup', stopDrawing);
-    } else if (e.target.closest('.erase-icon')) {
-        currentTool = 'erase';
+    }
+    else if (e.target.classList.contains('erase-icon')) {
         canvas.style.cursor = "url('https://imgs.search.brave.com/FtJ0f51iAzqo8bsJVqsJNiiH-LgnTHdYXOomJwCmL9w/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9idXJz/dC5zaG9waWZ5Y2Ru/LmNvbS9waG90b3Mv/YS1kcm9wLW9mLXBp/bmstYW5kLXllbGxv/dy1wYWludC1pbi13/YXRlci5qcGc_d2lk/dGg9MTAwMCZmb3Jt/YXQ9cGpwZyZleGlm/PTAmaXB0Yz0w'), 10 10 auto";
-          
         canvas.addEventListener('mousedown', startErasing);
         canvas.addEventListener('mousemove', erase);
         canvas.addEventListener('mouseup', stopDrawing);
+    }
+    else if (e.target.classList.contains('eraseall-icon')) {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
     }
 });
 
