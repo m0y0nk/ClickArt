@@ -82,6 +82,17 @@ function restoreCanvas() {
     }
 }
 
+let selectedColor = 'black';
+
+const palette = document.getElementById('colorPicker');
+palette.addEventListener('click', (e) => {
+    const colorDiv = e.target;
+    if (colorDiv) {
+        selectedColor = colorDiv.getAttribute('data-color');
+        console.log(selectedColor)
+    }
+});
+
 // Freehand drawing
 function startFreehand(e) {
     isDrawing = true;
@@ -93,7 +104,7 @@ function drawFreehand(e) {
         ctx.beginPath();
         ctx.moveTo(prevX, prevY);
         ctx.lineTo(e.offsetX, e.offsetY);
-        ctx.strokeStyle = 'black';
+        ctx.strokeStyle = selectedColor;
         ctx.lineWidth = 2;
         ctx.stroke();
         [prevX, prevY] = [e.offsetX, e.offsetY];
@@ -114,7 +125,7 @@ function drawRectangle(e) {
         const height = e.offsetY - startY;
         ctx.beginPath();
         ctx.rect(startX, startY, width, height);
-        ctx.strokeStyle = 'black';
+        ctx.strokeStyle = selectedColor;
         ctx.lineWidth = 2;
         ctx.stroke();
     }
@@ -135,7 +146,7 @@ function drawCircle(e) {
         );
         ctx.beginPath();
         ctx.arc(startX, startY, radius, 0, Math.PI * 2);
-        ctx.strokeStyle = 'black';
+        ctx.strokeStyle = selectedColor;
         ctx.lineWidth = 2;
         ctx.stroke();
     }
